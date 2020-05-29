@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAERP", "IAERP\IAERP.csproj", "{E567D3FE-28E8-4E1C-8814-C340D138BF2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainModel_IAERP", "TrainModel_IAERP\TrainModel_IAERP.csproj", "{4EECE75F-B873-42CC-864D-87400C590241}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E567D3FE-28E8-4E1C-8814-C340D138BF2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E567D3FE-28E8-4E1C-8814-C340D138BF2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E567D3FE-28E8-4E1C-8814-C340D138BF2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E567D3FE-28E8-4E1C-8814-C340D138BF2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EECE75F-B873-42CC-864D-87400C590241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EECE75F-B873-42CC-864D-87400C590241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EECE75F-B873-42CC-864D-87400C590241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EECE75F-B873-42CC-864D-87400C590241}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82B3D407-3975-43B9-B0B8-6F82A5BFDA7C}
+	EndGlobalSection
+EndGlobal

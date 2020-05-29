@@ -1,0 +1,74 @@
+﻿<Window x:Class="IAERP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IAERP"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="DatePickerTextBox" x:Key="DIA">
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <TextBox x:Name="PART_TextBox"
+                                     Text="{Binding Path=SelectedDate, StringFormat = {}{0:dd-MM-yyyy}, 
+                                     RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="DatePickerTextBox" x:Key="MES">
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <TextBox x:Name="PART_TextBox"
+                                     Text="{Binding Path=SelectedDate, StringFormat = {}{0:MM-yyyy}, 
+                                     RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="DatePickerTextBox" x:Key="AÑO">
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <TextBox x:Name="PART_TextBox"
+                                     Text="{Binding Path=SelectedDate, StringFormat = {}{0:yyyy}, 
+                                     RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+        
+    </Window.Resources>
+    <Grid>
+        <Button x:Name="CalcularButton" Content="CALCULAR" HorizontalAlignment="Left" Margin="511,155,0,0" VerticalAlignment="Top" Width="176" Height="38" Click="CalcularButton_Click"/>
+        <Button x:Name="ConsultarButton" Content="CONSULTAR" HorizontalAlignment="Left" Height="37" Margin="511,88,0,0" VerticalAlignment="Top" Width="176" Click="ConsultarButton_Click"/>
+        <ListBox x:Name="selModulo" HorizontalAlignment="Left" Height="66" Margin="141,88,0,0" VerticalAlignment="Top" Width="159" SelectionChanged="selModulo_SelectionChanged">
+            <ListBoxItem Content="VENTAS"/>
+        </ListBox>
+        <ComboBox x:Name="selTemporalidad" HorizontalAlignment="Left" Height="28" Margin="141,180,0,0" VerticalAlignment="Top" Width="159" SelectionChanged="selTemporalidad_SelectionChanged">
+            <ComboBoxItem Content="DIA"/>
+            <ComboBoxItem Content="SEMANA"/>
+            <ComboBoxItem Content="MES"/>
+            <ComboBoxItem Content="AÑO"/>
+        </ComboBox>
+        <TextBox x:Name="selRepeticiones" HorizontalAlignment="Left" Height="28" Margin="141,317,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" ToolTip="Entre el Nº de repeticiones" LostFocus="selRepeticiones_LostFocus"/>
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="Calendar" x:Key="DateTimeCalendar">
+                    <Setter Property="DisplayMode" Value="Month"/>
+                </Style>
+            </StackPanel.Resources>
+            <DatePicker CalendarStyle="{StaticResource DateTimeCalendar}" x:Name="selFecha" HorizontalAlignment="Left" Height="28" Margin="141,252,0,0" VerticalAlignment="Top" Width="159" SelectedDateChanged="selFecha_SelectedDateChanged" CalendarOpened="selFecha_CalendarOpened" />
+        </StackPanel>
+        <Label x:Name="textModulo" Content="Modulo" HorizontalAlignment="Left" Margin="20,88,0,0" VerticalAlignment="Top" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
+        <Label x:Name="textFecha" Content=" Fecha" HorizontalAlignment="Left" Margin="20,252,0,0" VerticalAlignment="Top" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
+        <Label x:Name="textTemporalidad" Content="Temporalidad" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
+        <Label x:Name="textRepeticiones" Content="Repeticiones" HorizontalAlignment="Left" Margin="20,317,0,0" VerticalAlignment="Top" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
+        <Label Content="IAERP" HorizontalAlignment="Left" Height="37" Margin="20,19,0,0" VerticalAlignment="Top" Width="280" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="20"/>
+    </Grid>
+</Window>

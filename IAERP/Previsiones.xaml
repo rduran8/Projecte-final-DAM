@@ -1,0 +1,52 @@
+﻿<Window x:Class="IAERP.Previsiones"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IAERP"
+        mc:Ignorable="d"
+        Title="Previsiones" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid Name="Pantalla">
+        <DockPanel HorizontalAlignment="Left" LastChildFill="true" VerticalAlignment="Top"  Width="{Binding ElementName=Pantalla,Path=ActualWidth, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ElementName=Pantalla, Path=ActualHeight, UpdateSourceTrigger=PropertyChanged}">
+            <DockPanel Height="80" LastChildFill="true" VerticalAlignment="Top" DockPanel.Dock="Top" UseLayoutRounding="True" Name="HeaderDock">
+                <Grid VerticalAlignment="Top" DockPanel.Dock="Top" Width="{Binding ElementName=HeaderDock, Path=ActualWidth, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ElementName=HeaderDock, Path=ActualHeight, UpdateSourceTrigger=PropertyChanged}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="211"/>
+                        <ColumnDefinition Width="211"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.RowSpan="2"  Content="TITULO" Margin="10" VerticalAlignment="Center" Width="350" DockPanel.Dock="Top" HorizontalAlignment="Left" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFF3EEEE" Height="60"/>
+                    <Button Grid.Column="1" Grid.Row="0" Margin="10,10,5,5" Content="BUTTON"/>
+                    <Button Grid.Column="2" Grid.Row="0"  Margin="5,10,10,5" Content="BUTTON"/>
+                    <Button Grid.Column="1" Grid.Row="1" Margin="10,5,125,10" Content="BUSCAR" />
+                    <ComboBox x:Name="selFiltrar" Grid.Row="1" Grid.Column="1" Margin="91,5,5,10" >
+                        <ComboBoxItem Content="ID"/>
+                        <ComboBoxItem Content="MODULO"/>
+                        <ComboBoxItem Content="TEMPORALIDAD"/>
+                        <ComboBoxItem Content="REPETICIONES"/>
+                        <ComboBoxItem Content="FECHA" />
+                    </ComboBox>
+                    <TextBox x:Name="TextBoxFiltar" Grid.Row="1" Grid.Column="2" Margin="5,5,10,10" />
+                </Grid>
+            </DockPanel>
+            <DockPanel LastChildFill="false" VerticalAlignment="Top" Margin="0" DockPanel.Dock="Bottom">
+                <DockPanel DockPanel.Dock="Top" Margin="10" LastChildFill="True" UseLayoutRounding="True" Name="TableDock">
+                    <DataGrid x:Name="DataGridPrevisiones" AutoGenerateColumns="false" UseLayoutRounding="True" DockPanel.Dock="Top" ColumnHeaderHeight="30" CanUserAddRows="true" AlternatingRowBackground="#FFF3EEEE" AreRowDetailsFrozen="True" IsReadOnly="True" MouseDoubleClick="DataGridPrevisiones_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding id}" Header ="ID"/>
+                            <DataGridTextColumn Binding="{Binding Modulo}" Header ="MODULO"/>
+                            <DataGridTextColumn Binding="{Binding Temporalidad}" Header ="TEMPORTALIDAD"/>
+                            <DataGridTextColumn Binding="{Binding Repeticiones}" Header ="REPETICIONES"/>
+                            <DataGridTextColumn Binding="{Binding Fecha, StringFormat=\{0:dd/MM/yyyy\}}" Header ="FECHA" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>
