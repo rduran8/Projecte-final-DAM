@@ -47,7 +47,6 @@ namespace IAERP
             da.Fill(ds, "Prevision");
             DataGridPrevision.ItemsSource = ds.Tables["Prevision"].DefaultView;
             conect.disconnect();
-            Boolean selFecha = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

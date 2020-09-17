@@ -51,7 +51,7 @@ namespace IAERP
                 parameters[2].Value = (selTemporalidad.SelectedItem as ComboBoxItem).Content.ToString();    //TEMPORALIDAD
                 parameters[3].Value = selFecha.SelectedDate;                                                             //FECHA
                 int id = dbManager.insertPrevisiones(parameters);
-                Predict.PredictionRegression(id);
+                Predict.PredictionRegression(id, parameters);
                 Previsiones window = new Previsiones(id);
                 window.ShowDialog();
             }
