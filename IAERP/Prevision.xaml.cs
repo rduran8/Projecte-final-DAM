@@ -28,6 +28,7 @@ namespace IAERP
         private int id_previsiones = 0;
         private TextBox TextBoxFiltar;
         private DatePicker DatePickerFiltrar;
+        Boolean selFecha = false;
         public Window1(int id_previsiones)
         {
             this.id_previsiones = id_previsiones;
@@ -46,6 +47,7 @@ namespace IAERP
             da.Fill(ds, "Prevision");
             DataGridPrevision.ItemsSource = ds.Tables["Prevision"].DefaultView;
             conect.disconnect();
+            Boolean selFecha = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -64,32 +66,41 @@ namespace IAERP
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextBoxFiltar.Text.Equals(""))
-            {
-                //ds.Tables["Prevision"].DefaultView.RowFilter = string.Format("'%{0}%' LIKE '%{1}%'", selFiltrar.Text,TextBoxFiltar.Text);
-                try
+            if (!selFecha)
+            { 
+                if (!TextBoxFiltar.Text.Equals(""))
                 {
-                    ds.Tables["Prevision"].DefaultView.RowFilter = "" + selFiltrar.Text.ToLower() + " = " + TextBoxFiltar.Text;
+                    //ds.Tables["Prevision"].DefaultView.RowFilter = string.Format("'%{0}%' LIKE '%{1}%'", selFiltrar.Text,TextBoxFiltar.Text);
+                    try
+                    {
+                        ds.Tables["Prevision"].DefaultView.RowFilter = "" + selFiltrar.Text.ToLower() + " = " + TextBoxFiltar.Text;
+                    }
+                    catch
+                    {
+                        ds.Tables["Prevision"].DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", selFiltrar.Text.ToLower(), TextBoxFiltar.Text);
+                    }
                 }
-                catch
+                else
                 {
-                    ds.Tables["Prevision"].DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", selFiltrar.Text.ToLower(),TextBoxFiltar.Text);
+                    ds.Tables["Prevision"].DefaultView.RowFilter = String.Empty;
                 }
             }
             else
-            {
-                ds.Tables["Prevision"].DefaultView.RowFilter = String.Empty;
+            {   
+
             }
         }
 
         private void selFiltarFecha(object sender, RoutedEventArgs e)
         {
             crearDatePicker();
+            selFecha = true;
         }
 
         private void selFiltarText(object sender, RoutedEventArgs e)
         {
             crearTextBox();
+            selFecha = false;
         }
 
         private void crearTextBox()
