@@ -16,6 +16,10 @@ namespace TrainModel_IAERP
         private static readonly string SaleDataRelativePath = $"{BaseDatasetsRelativePath}/sales.stats.csv";
         private static readonly string SaleDataPath = GetAbsolutePath(SaleDataRelativePath);
 
+        private static string BaseModelsRelativePath = @"../../../MLModels";
+        private static string ModelRelativePath = $"{BaseModelsRelativePath}/product_month_fastTreeTweedie.zip";
+        private static string ModelPath = GetAbsolutePath(ModelRelativePath);
+
 
         static void Main(string[] args)
         {
@@ -26,11 +30,14 @@ namespace TrainModel_IAERP
             CreateAndSaveModelRegression(mlContext,dataPath);
         }
 
-        private static void CreateAndSaveModelRegression(MLContext mlContext, string dataPath, string outputModelPath = "product_month_fastTreeTweedie.zip")
+        //private static void CreateAndSaveModelRegression(MLContext mlContext, string dataPath, string outputModelPath = "product_month_fastTreeTweedie.zip")
+        private static void CreateAndSaveModelRegression(MLContext mlContext, string dataPath)
         {
-            if(File.Exists(outputModelPath))
+            //if(File.Exists(outputModelPath))
+            if (File.Exists(ModelPath))
             {
-                File.Delete(outputModelPath);
+                //File.Delete(outputModelPath);
+                File.Delete(ModelPath);
             }
 
             Console.WriteLine("Cargando datos");
@@ -47,15 +54,17 @@ namespace TrainModel_IAERP
                     .Append(trainer);
 
             Console.WriteLine("Validando");
-            var crossValidationResults = mlContext.Regression.CrossValidate(data: trainingDataView, estimator: trainingPipeline, numberOfFolds: 6, labelColumnName: "Label");
+            var crossValidationResults = mlContext.Regression.CrossValidate(data: trainingDataView, estimator: trainingPipeline, numberOfFolds: 2, labelColumnName: "Label");
             Console.WriteLine(trainer.ToString(), crossValidationResults);
 
             var model = trainingPipeline.Fit(trainingDataView);
 
             // Save the model for later comsumption from end-user apps.
-            mlContext.Model.Save(model, trainingDataView.Schema, outputModelPath);
+            //mlContext.Model.Save(model, trainingDataView.Schema, outputModelPath);
+            mlContext.Model.Save(model, trainingDataView.Schema, ModelPath);
 
-            TestPredictionRegression(mlContext,outputModelPath,dataPath);
+            //TestPredictionRegression(mlContext,outputModelPath,dataPath);
+            TestPredictionRegression(mlContext, ModelPath, dataPath);
         }
 
         private static void TestPredictionRegression(MLContext mlContext, string outputModelPath, string dataPath)

@@ -42,33 +42,37 @@
                 </Setter>
             </Style>
         </ResourceDictionary>
-        
+
     </Window.Resources>
     <Grid>
-        <Button x:Name="CalcularButton" Content="CALCULAR" HorizontalAlignment="Left" Margin="511,155,0,0" VerticalAlignment="Top" Width="176" Height="38" Click="CalcularButton_Click"/>
-        <Button x:Name="ConsultarButton" Content="CONSULTAR" HorizontalAlignment="Left" Height="37" Margin="511,88,0,0" VerticalAlignment="Top" Width="176" Click="ConsultarButton_Click"/>
-        <ListBox x:Name="selModulo" HorizontalAlignment="Left" Height="66" Margin="141,88,0,0" VerticalAlignment="Top" Width="159" SelectionChanged="selModulo_SelectionChanged">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="CalcularButton" Content="CALCULAR" HorizontalAlignment="Right" Margin="0,0,100,215" VerticalAlignment="Bottom" Width="180" Height="40" Click="CalcularButton_Click" Grid.Column="1"/>
+        <Button x:Name="ConsultarButton" Content="CONSULTAR" HorizontalAlignment="Right" Height="40" Margin="0,0,100,291" VerticalAlignment="Bottom" Width="180" Click="ConsultarButton_Click" Grid.Column="1"/>
+        <ListBox x:Name="selModulo" HorizontalAlignment="Left" Margin="0,0,0,270" Width="159" SelectionChanged="selModulo_SelectionChanged" Grid.Column="1" Height="61" VerticalAlignment="Bottom">
             <ListBoxItem Content="VENTAS"/>
         </ListBox>
-        <ComboBox x:Name="selTemporalidad" HorizontalAlignment="Left" Height="28" Margin="141,180,0,0" VerticalAlignment="Top" Width="159" SelectionChanged="selTemporalidad_SelectionChanged">
+        <ComboBox x:Name="selTemporalidad" HorizontalAlignment="Left" Margin="0,0,0,202" Width="159" SelectionChanged="selTemporalidad_SelectionChanged" Grid.Column="1" Height="28" VerticalAlignment="Bottom">
             <ComboBoxItem Content="DIA"/>
             <ComboBoxItem Content="SEMANA"/>
             <ComboBoxItem Content="MES"/>
             <ComboBoxItem Content="AÑO"/>
         </ComboBox>
-        <TextBox x:Name="selRepeticiones" HorizontalAlignment="Left" Height="28" Margin="141,317,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" ToolTip="Entre el Nº de repeticiones" LostFocus="selRepeticiones_LostFocus"/>
-        <StackPanel>
+        <TextBox x:Name="selRepeticiones" HorizontalAlignment="Left" Margin="0,0,0,63" TextWrapping="Wrap" Text="" Width="159" ToolTip="Entre el Nº de repeticiones" LostFocus="selRepeticiones_LostFocus" Grid.Column="1" Height="28" VerticalAlignment="Bottom"/>
+        <StackPanel Margin="0,0,0,130" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" Height="28" Width="160">
             <StackPanel.Resources>
                 <Style TargetType="Calendar" x:Key="DateTimeCalendar">
                     <Setter Property="DisplayMode" Value="Month"/>
                 </Style>
             </StackPanel.Resources>
-            <DatePicker CalendarStyle="{StaticResource DateTimeCalendar}" x:Name="selFecha" HorizontalAlignment="Left" Height="28" Margin="141,252,0,0" VerticalAlignment="Top" Width="159" SelectedDateChanged="selFecha_SelectedDateChanged" CalendarOpened="selFecha_CalendarOpened" />
+            <DatePicker CalendarStyle="{StaticResource DateTimeCalendar}" x:Name="selFecha" HorizontalAlignment="Left" Height="28" Margin="0,0,0,0" VerticalAlignment="Top" Width="159" SelectedDateChanged="selFecha_SelectedDateChanged" CalendarOpened="selFecha_CalendarOpened" />
         </StackPanel>
-        <Label x:Name="textModulo" Content="Modulo" HorizontalAlignment="Left" Margin="20,88,0,0" VerticalAlignment="Top" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
-        <Label x:Name="textFecha" Content=" Fecha" HorizontalAlignment="Left" Margin="20,252,0,0" VerticalAlignment="Top" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
-        <Label x:Name="textTemporalidad" Content="Temporalidad" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
-        <Label x:Name="textRepeticiones" Content="Repeticiones" HorizontalAlignment="Left" Margin="20,317,0,0" VerticalAlignment="Top" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
-        <Label Content="IAERP" HorizontalAlignment="Left" Height="37" Margin="20,19,0,0" VerticalAlignment="Top" Width="280" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="20"/>
+        <Label x:Name="textModulo" Content="Modulo" HorizontalAlignment="Left" Margin="104,0,0,303" VerticalAlignment="Bottom" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
+        <Label x:Name="textFecha" Content=" Fecha" HorizontalAlignment="Left" Margin="104,0,0,130" VerticalAlignment="Bottom" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
+        <Label x:Name="textTemporalidad" Content="Temporalidad" HorizontalAlignment="Left" Margin="104,0,0,202" VerticalAlignment="Bottom" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
+        <Label x:Name="textRepeticiones" Content="Repeticiones" HorizontalAlignment="Left" Margin="104,0,0,63" VerticalAlignment="Bottom" Height="28" Width="96" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
+        <Label Content="IAERP" HorizontalAlignment="Left" Height="50" Margin="49,0,0,359" VerticalAlignment="Bottom" Width="310" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
