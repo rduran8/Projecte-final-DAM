@@ -32,6 +32,8 @@ namespace IAERP
         public MainWindow()
         {
             InitializeComponent();
+            this.Title = "IAERP";
+            this.
             dbManager = new DBManagement();
         }
 
