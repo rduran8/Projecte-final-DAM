@@ -49,7 +49,7 @@ namespace IAERP
                 parameters[0].Value = (selModulo.SelectedItem as ListBoxItem).Content.ToString();           //MODULO
                 parameters[1].Value = int.Parse(selRepeticiones.Text);                                      //REPETICIONES
                 parameters[2].Value = (selTemporalidad.SelectedItem as ComboBoxItem).Content.ToString();    //TEMPORALIDAD
-                parameters[3].Value = selFecha.SelectedDate;                                                             //FECHA
+                parameters[3].Value = selFecha.SelectedDate;                                                //FECHA
                 int id = dbManager.insertPrevisiones(parameters);
                 Predict.PredictionRegression(id, parameters);
                 Previsiones window = new Previsiones(id);
