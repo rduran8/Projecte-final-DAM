@@ -33,7 +33,6 @@ namespace IAERP
         {
             InitializeComponent();
             this.Title = "IAERP";
-            this.
             dbManager = new DBManagement();
         }
 
