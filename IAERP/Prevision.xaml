@@ -6,35 +6,47 @@
         xmlns:local="clr-namespace:IAERP"
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded" Background="#FFF1F1F1">
     <Grid Name="Pantalla">
         <DockPanel HorizontalAlignment="Left" LastChildFill="true" VerticalAlignment="Top"  Width="{Binding ElementName=Pantalla,Path=ActualWidth, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ElementName=Pantalla, Path=ActualHeight, UpdateSourceTrigger=PropertyChanged}">
             <DockPanel Height="80" LastChildFill="true" VerticalAlignment="Top" DockPanel.Dock="Top" UseLayoutRounding="True" Name="HeaderDock">
                 <Grid x:Name ="ButtonsGrid" VerticalAlignment="Top" DockPanel.Dock="Top" Width="{Binding ElementName=HeaderDock, Path=ActualWidth, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ElementName=HeaderDock, Path=ActualHeight, UpdateSourceTrigger=PropertyChanged}">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="211"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                         <ColumnDefinition Width="211"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Column="0" Grid.RowSpan="2"  Content="TITULO" Margin="10" VerticalAlignment="Center" Width="350" DockPanel.Dock="Top" HorizontalAlignment="Left" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFF3EEEE" Height="60"/>
-                    <Button Grid.Column="1" Grid.Row="0" Margin="10,10,5,5" Content="VOLVER" Click="Button_Click"/>
-                    <Button Grid.Column="2" Grid.Row="0"  Margin="5,10,10,5" Content="INICIO" Click="Button_Click_1"/>
-                    <Button Grid.Column="1" Grid.Row="1" Margin="10,5,125,10" Content="BUSCAR" Click="BuscarButton_Click"/>
-                    <ComboBox x:Name="selFiltrar" Grid.Row="1" Grid.Column="1" Margin="91,5,5,10">
-                        <ComboBoxItem Content="ID" Selected="selFiltarText"/>
+                    <Label Grid.Column="1" Grid.RowSpan="2"  Content="PREVISION" Margin="10,10,0,0" VerticalAlignment="Center" Width="270" HorizontalAlignment="Left" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" Height="70" FontSize="48" Foreground="#FFF57F0F"/>
+                    <Button x:Name="ButtonBuscar" Grid.Column="2" Grid.Row="0" Margin="5,10,125,5" Content="BUSCAR" Click="BuscarButton_Click" Background="#FFFFE0C1" BorderBrush="#FFD7D4D7"/>
+                    <ComboBox x:Name="selFiltrar" Grid.Row="0" Grid.Column="2" Margin="91,10,10,5" BorderBrush="#FFD7D4D7">
+                        <ComboBox.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFFFE0C1" Offset="0"/>
+                                <GradientStop Color="#FFFFE0C1" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Background>
+                        <ComboBoxItem Content="ID" Selected="selFiltarText" IsSelected="True"/>
                         <ComboBoxItem Content="PRODUCTO" Selected="selFiltarText"/>
                         <ComboBoxItem Content="FECHA" Selected="selFiltarFecha"/>
                         <ComboBoxItem Content="PREVISION" Selected="selFiltarText"/>
                     </ComboBox>
+                    <Image HorizontalAlignment="Left" Height="49" Margin="10,21,0,0" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Top" Width="255" Source="logoe.png"/>
                 </Grid>
             </DockPanel>
-            <DockPanel LastChildFill="false" VerticalAlignment="Top" Margin="0" DockPanel.Dock="Bottom">
+            <DockPanel LastChildFill="false" VerticalAlignment="Top" Margin="0" DockPanel.Dock="top">
                 <DockPanel DockPanel.Dock="Top" Margin="10" LastChildFill="True" UseLayoutRounding="True" Name="TableDock">
-                    <DataGrid x:Name="DataGridPrevision" AutoGenerateColumns="false" UseLayoutRounding="True" DockPanel.Dock="Top" ColumnHeaderHeight="30" CanUserAddRows="true" AlternatingRowBackground="#FFF3EEEE" AreRowDetailsFrozen="True" IsReadOnly="True" >
+                    <DataGrid x:Name="DataGridPrevision" AutoGenerateColumns="false" UseLayoutRounding="True" DockPanel.Dock="Top" ColumnHeaderHeight="31" CanUserAddRows="false" AlternatingRowBackground="#FFFFE0C1" AreRowDetailsFrozen="True" IsReadOnly="True" Background="#FFFFE0C1" RowBackground="#FFFFBA75" HeadersVisibility="Column" HorizontalGridLinesBrush="#FFD7D4D7" VerticalGridLinesBrush="#FFD7D4D7" BorderBrush="#FFD7D4D7">
+                        <DataGrid.Resources>
+                            <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#FFFFE0C1" />
+                                <Setter Property="BorderBrush" Value="#FFD7D4D7"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                            </Style>
+                        </DataGrid.Resources>
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding id}" Header ="ID"/>
                             <DataGridTextColumn Binding="{Binding producto}" Header ="PRODUCTO"/>
@@ -43,6 +55,18 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
+            </DockPanel>
+            <DockPanel Height="60" LastChildFill="true" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" UseLayoutRounding="True" Name="BottomDock" >
+                <Grid x:Name ="BottomGrid" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Width="{Binding ElementName=BottomDock, Path=ActualWidth, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ElementName=BottomDock, Path=ActualHeight, UpdateSourceTrigger=PropertyChanged}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="211"/>
+                        <ColumnDefinition Width="211"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" Grid.Row="0" Margin="10,10,5,5" Content="VOLVER" Click="Button_Click" Background="#FFFFE0C1" BorderBrush="#FFD7D4D7"/>
+                    <Button Grid.Column="2" Grid.Row="0"  Margin="5,10,10,5" Content="INICIO" Click="Button_Click_1" Background="#FFFFE0C1" BorderBrush="#FFD7D4D7"/>
+
+                </Grid>
             </DockPanel>
         </DockPanel>
     </Grid>

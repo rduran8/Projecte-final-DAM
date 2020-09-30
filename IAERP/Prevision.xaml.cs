@@ -44,7 +44,15 @@ namespace IAERP
             cnn = conect.GetConnection();
             SqlDataAdapter da = new SqlDataAdapter("SELECT id, producto, fecha, prevision FROM dbo.Prevision where id_Prevision = @idsel", cnn);
             da.SelectCommand.Parameters.AddWithValue("@idsel", id_previsiones);
-            da.Fill(ds, "Prevision");
+            //da.Fill(ds, "Prevision");
+            ds.Tables.Add("Prevision");
+            ds.Tables["Prevision"].Columns.Add("id");
+            ds.Tables["Prevision"].Columns.Add("producto");
+            ds.Tables["Prevision"].Columns.Add("fecha");
+            ds.Tables["Prevision"].Rows.Add(1, "a", DateTime.Now);
+            ds.Tables["Prevision"].Rows.Add(21, "a", DateTime.Now);
+            ds.Tables["Prevision"].Rows.Add(31, "a", DateTime.Now);
+            ds.Tables["Prevision"].Rows.Add(41, "a", DateTime.Now);
             DataGridPrevision.ItemsSource = ds.Tables["Prevision"].DefaultView;
             conect.disconnect();
         }
@@ -108,6 +116,9 @@ namespace IAERP
             TextBoxFiltar = new TextBox();
             TextBoxFiltar.Name = "TextBoxFiltar";
             TextBoxFiltar.Margin = new Thickness(5, 5, 10, 10);
+            TextBoxFiltar.Background = ButtonBuscar.Background.CloneCurrentValue();
+            TextBoxFiltar.BorderBrush = ButtonBuscar.BorderBrush.CloneCurrentValue();
+            TextBoxFiltar.PreviewKeyUp += ComprobarEnter;
             Grid.SetRow(TextBoxFiltar, 1);
             Grid.SetColumn(TextBoxFiltar, 2);
             ButtonsGrid.Children.Add(TextBoxFiltar);
@@ -119,9 +130,20 @@ namespace IAERP
             DatePickerFiltrar = new DatePicker();
             DatePickerFiltrar.Name = "DatePickerFiltrar";
             DatePickerFiltrar.Margin = new Thickness(5, 5, 10, 10);
+            DatePickerFiltrar.Background = ButtonBuscar.Background.CloneCurrentValue();
+            DatePickerFiltrar.BorderBrush = ButtonBuscar.BorderBrush.CloneCurrentValue();
+            DatePickerFiltrar.PreviewKeyUp += ComprobarEnter;
             Grid.SetRow(DatePickerFiltrar, 1);
             Grid.SetColumn(DatePickerFiltrar, 2);
             ButtonsGrid.Children.Add(DatePickerFiltrar);
+        }
+
+        private void ComprobarEnter(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                BuscarButton_Click(sender, e);
+            }
         }
     }
 }

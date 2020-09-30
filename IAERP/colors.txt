@@ -1,0 +1,4 @@
+﻿gris : #FFF1F1F1
+taronge titul: #FFF57F0F
+taronge botons: #FFFFE0C1
+border: #FFD7D4D7

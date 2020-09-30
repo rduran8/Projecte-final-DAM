@@ -243,6 +243,11 @@ namespace IAERP
             window.ShowDialog();
         }
 
+        private void CerrarButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         //private static readonly string BaseDatasetsRelativePath = @"../../../IAERP/Data";
         //private static readonly string SaleDataRelativePath = $"{BaseDatasetsRelativePath}/sales.stats.csv";
         //private static readonly string SaleDataPath = GetAbsolutePath(SaleDataRelativePath);
