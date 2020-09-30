@@ -32,12 +32,14 @@ namespace IAERP
         public Previsiones()
         {
             InitializeComponent();
+            this.Title = "IAERP - Previsiones";
         }
 
         public Previsiones(int id)
         {
             this.id = id;
             InitializeComponent();
+            this.Title = "IAERP - Previsiones | Filtro: ID_Previsiones: " + id;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -99,13 +101,6 @@ namespace IAERP
             }
         }
 
-        private void Volver_Click(object sender, RoutedEventArgs e)
-        {
-            Previsiones window = new Previsiones();
-            window.Show();
-            this.Close();
-        }
-
         private void Inicio_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -125,11 +120,13 @@ namespace IAERP
                     catch
                     {
                         ds.Tables["Previsiones"].DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", selFiltrar.Text.ToLower(), TextBoxFiltar.Text);
+                        this.Title = "IAERP - Previsiones | Filtro: " + selFiltrar.Text + ": " + TextBoxFiltar.Text;
                     }
                 }
                 else
                 {
                     ds.Tables["Previsiones"].DefaultView.RowFilter = String.Empty;
+                    this.Title = "IAERP - Previsiones";
                 }
             }
             else

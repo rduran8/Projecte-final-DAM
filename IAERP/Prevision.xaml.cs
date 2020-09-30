@@ -32,8 +32,8 @@ namespace IAERP
         public Window1(int id_previsiones)
         {
             this.id_previsiones = id_previsiones;
-            
             InitializeComponent();
+            this.Title = "IAERP - Prevision - ID_Previsiones: " + id_previsiones;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -86,10 +86,12 @@ namespace IAERP
                     {
                         ds.Tables["Prevision"].DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", selFiltrar.Text.ToLower(), TextBoxFiltar.Text);
                     }
+                    this.Title = "IAERP - Prevision - ID_Previsiones: " + id_previsiones + " | Filtro: " + selFiltrar.Text + ": " + TextBoxFiltar.Text;
                 }
                 else
                 {
                     ds.Tables["Prevision"].DefaultView.RowFilter = String.Empty;
+                    this.Title = "IAERP - Prevision - ID_Previsiones: " + id_previsiones;
                 }
             }
             else

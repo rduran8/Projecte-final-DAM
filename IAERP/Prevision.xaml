@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:IAERP"
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800"
-        Loaded="Window_Loaded" Background="#FFF1F1F1">
+        Loaded="Window_Loaded" Background="#FFF1F1F1" Icon="logoe.png">
     <Grid Name="Pantalla">
         <DockPanel HorizontalAlignment="Left" LastChildFill="true" VerticalAlignment="Top"  Width="{Binding ElementName=Pantalla,Path=ActualWidth, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ElementName=Pantalla, Path=ActualHeight, UpdateSourceTrigger=PropertyChanged}">
             <DockPanel Height="80" LastChildFill="true" VerticalAlignment="Top" DockPanel.Dock="Top" UseLayoutRounding="True" Name="HeaderDock">

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IAERP"
         mc:Ignorable="d"
-        Title="IAERP" Height="450" Width="800" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize" Background="#FFF1F1F1">
+        Title="IAERP" Height="450" Width="800" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize" Background="#FFF1F1F1" Icon="logoe.png">
     <Window.Resources>
         <ResourceDictionary>
             <Style TargetType="DatePickerTextBox" x:Key="DIA">
