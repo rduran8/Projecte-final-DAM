@@ -29,6 +29,9 @@ namespace IAERP
         private TextBox TextBoxFiltar;
         private DatePicker DatePickerFiltrar;
         Boolean selFecha = false;
+        /// <summary>
+        /// 
+        /// </summary>
         public Previsiones()
         {
             InitializeComponent();

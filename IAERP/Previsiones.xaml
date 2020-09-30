@@ -12,15 +12,15 @@
             <DockPanel Height="80" LastChildFill="true" VerticalAlignment="Top" DockPanel.Dock="Top" UseLayoutRounding="True" Name="HeaderDock">
                 <Grid x:Name ="ButtonsGrid" VerticalAlignment="Top" DockPanel.Dock="Top" Width="{Binding ElementName=HeaderDock, Path=ActualWidth, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ElementName=HeaderDock, Path=ActualHeight, UpdateSourceTrigger=PropertyChanged}">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="251*" />
-                        <ColumnDefinition Width="330*" />
+                        <ColumnDefinition Width="211" />
+                        <ColumnDefinition />
                         <ColumnDefinition Width="211"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Column="1" Grid.RowSpan="2"  Content="PREVISIONES" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" Height="70" FontSize="48" Foreground="#FFF57F0F" HorizontalAlignment="Left" Width="320"/>
+                    <Label Grid.Column="1" Grid.RowSpan="2"  Content="PREVISIONES" Margin="5,0,5,0" VerticalAlignment="Top" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" Height="70" FontSize="48" Foreground="#FFF57F0F"/>
                     <Button x:Name="ButtonBuscar" Grid.Column="2" Grid.Row="0" Margin="5,10,125,5" Content="BUSCAR" Click="BuscarButton_Click" Background="#FFFFE0C1" BorderBrush="#FFD7D4D7"/>
                     <ComboBox x:Name="selFiltrar" Grid.Row="0" Grid.Column="2" Margin="91,10,10,5" BorderBrush="#FFD7D4D7" Background="#FFFFE0C1">
                         <ComboBox.ItemContainerStyle>
@@ -41,7 +41,7 @@
                         <ComboBoxItem Content="REPETICIONES" Selected="selFiltarText"/>
                         <ComboBoxItem Content="FECHA" Selected="selFiltarFecha"/>
                     </ComboBox>
-                    <Image HorizontalAlignment="Left" Margin="10,19,0,0" Grid.Column="0" Grid.RowSpan="2" Width="255" Source="logoe.png" Grid.ColumnSpan="2" Height="43" VerticalAlignment="Top"/>
+                    <Image HorizontalAlignment="Left" Margin="10,20,0,0" Grid.Column="0" Grid.RowSpan="2" Width="255" Source="logoe.png" Grid.ColumnSpan="2" Height="43" VerticalAlignment="Top"/>
                 </Grid>
             </DockPanel>
             <DockPanel LastChildFill="false" VerticalAlignment="Top" Margin="0" DockPanel.Dock="Top">
@@ -70,7 +70,7 @@
                         <ColumnDefinition Width="211"/>
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Grid.Row="0"  Margin="5,10,10,5" Content="INICIO" Click="Inicio_Click" Background="#FFFFE0C1" BorderBrush="#FFD7D4D7"/>
+                    <Button Grid.Column="0" Grid.Row="0"  Margin="5,10,10,5" Content="CERRAR" Click="Inicio_Click" Background="#FFFFE0C1" BorderBrush="#FFD7D4D7"/>
                     <Label Grid.Column="1" Grid.Row="0" Content="Versión:" Margin="0,0,10,5" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="210"/>
                 </Grid>
             </DockPanel>

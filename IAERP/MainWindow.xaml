@@ -85,9 +85,9 @@
         <Label x:Name="textFecha" Content=" Fecha" Margin="0,0,259,117" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96"/>
         <Label x:Name="textTemporalidad" Content="Temporalidad" Margin="0,0,259,189" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96"/>
         <Label x:Name="textRepeticiones" Content="Repeticiones" Margin="0,0,259,50" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" HorizontalAlignment="Right" Width="96" Height="28" VerticalAlignment="Bottom"/>
-        <Label Content="IAERP" Height="63" Margin="242,0,242,348" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36" Foreground="#FFF57F0F"/>
-        <Button x:Name="CalcularButton_Copy" Content="CERRAR" Margin="113,0,0,40" Click="CerrarButton_Click" Background="#FFFFE0C1" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="180" BorderBrush="#FFD7D4D7"/>
-        <Image Height="54" Margin="10,0,576,357" VerticalAlignment="Bottom" Source="logoe.png" Stretch="Uniform" RenderTransformOrigin="0,1.635"/>
+        <Label Content="IAERP" Margin="325,0,324,0" VerticalAlignment="Top" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" Height="70" FontSize="48" Foreground="#FFF57F0F"/>
+        <Button x:Name="CalcularButton_Copy" Content="CERRAR" Margin="5,0,0,5" Click="CerrarButton_Click" Background="#FFFFE0C1" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="180" BorderBrush="#FFD7D4D7"/>
+        <Image Margin="10,20,0,0" Source="logoe.png" Stretch="Uniform" RenderTransformOrigin="0,1.635" Width="255" Height="43" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Label Content="Versión:" HorizontalAlignment="Right" Margin="0,0,10,3" Width="201" Height="26" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
