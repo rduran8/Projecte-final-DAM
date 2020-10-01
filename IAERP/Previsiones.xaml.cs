@@ -68,17 +68,17 @@ namespace IAERP
             {
                 da = new SqlDataAdapter("SELECT id,Modulo,Temporalidad,Repeticiones,Fecha FROM dbo.Previsiones", cnn);
             }
-            ds.Tables.Add("Previsiones");
-            ds.Tables["Previsiones"].Columns.Add("id");
-            ds.Tables["Previsiones"].Columns.Add("Modulo");
-            ds.Tables["Previsiones"].Columns.Add("Temporalidad");
-            ds.Tables["Previsiones"].Columns.Add("Repeticiones");
-            ds.Tables["Previsiones"].Columns.Add("Fecha");
-            ds.Tables["Previsiones"].Rows.Add(1, "a", "a", 1, DateTime.Now);
-            ds.Tables["Previsiones"].Rows.Add(21, "a", "a", 1, DateTime.Now);
-            ds.Tables["Previsiones"].Rows.Add(31, "a", "a", 1, DateTime.Now);
-            ds.Tables["Previsiones"].Rows.Add(41, "a", "a", 1, DateTime.Now);
-            //da.Fill(ds, "Previsiones");
+            //ds.Tables.Add("Previsiones");
+            //ds.Tables["Previsiones"].Columns.Add("id");
+            //ds.Tables["Previsiones"].Columns.Add("Modulo");
+            //ds.Tables["Previsiones"].Columns.Add("Temporalidad");
+            //ds.Tables["Previsiones"].Columns.Add("Repeticiones");
+            //ds.Tables["Previsiones"].Columns.Add("Fecha");
+            //ds.Tables["Previsiones"].Rows.Add(1, "a", "a", 1, DateTime.Now);
+            //ds.Tables["Previsiones"].Rows.Add(21, "a", "a", 1, DateTime.Now);
+            //ds.Tables["Previsiones"].Rows.Add(31, "a", "a", 1, DateTime.Now);
+            //ds.Tables["Previsiones"].Rows.Add(41, "a", "a", 1, DateTime.Now);
+            da.Fill(ds, "Previsiones");
             DataGridPrevisiones.ItemsSource = ds.Tables["Previsiones"].DefaultView;
             conect.disconnect();
             
@@ -91,7 +91,6 @@ namespace IAERP
             try
             {
                 row = send.SelectedItems[0] as DataRowView;
-                //row.Row["ID"] = (int)(row.Row["ID"]) + 1;
                 Window1 window = new Window1((int)(row.Row["id"]));
                 window.Show();
                 this.Close();
@@ -106,6 +105,7 @@ namespace IAERP
 
         private void Inicio_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow.mainWindow.Focus();
             this.Close();
         }
 

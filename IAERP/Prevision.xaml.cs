@@ -42,17 +42,17 @@ namespace IAERP
             DBConnection conect = new DBConnection();
             conect.connect();
             cnn = conect.GetConnection();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT id, producto, fecha, prevision FROM dbo.Prevision where id_Prevision = @idsel", cnn);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT id, producto, fecha, prevision FROM dbo.Prevision where idprevision = @idsel", cnn);
             da.SelectCommand.Parameters.AddWithValue("@idsel", id_previsiones);
-            //da.Fill(ds, "Prevision");
-            ds.Tables.Add("Prevision");
-            ds.Tables["Prevision"].Columns.Add("id");
-            ds.Tables["Prevision"].Columns.Add("producto");
-            ds.Tables["Prevision"].Columns.Add("fecha");
-            ds.Tables["Prevision"].Rows.Add(1, "a", DateTime.Now);
-            ds.Tables["Prevision"].Rows.Add(21, "a", DateTime.Now);
-            ds.Tables["Prevision"].Rows.Add(31, "a", DateTime.Now);
-            ds.Tables["Prevision"].Rows.Add(41, "a", DateTime.Now);
+            da.Fill(ds, "Prevision");
+            //ds.Tables.Add("Prevision");
+            //ds.Tables["Prevision"].Columns.Add("id");
+            //ds.Tables["Prevision"].Columns.Add("producto");
+            //ds.Tables["Prevision"].Columns.Add("fecha");
+            //ds.Tables["Prevision"].Rows.Add(1, "a", DateTime.Now);
+            //ds.Tables["Prevision"].Rows.Add(21, "a", DateTime.Now);
+            //ds.Tables["Prevision"].Rows.Add(31, "a", DateTime.Now);
+            //ds.Tables["Prevision"].Rows.Add(41, "a", DateTime.Now);
             DataGridPrevision.ItemsSource = ds.Tables["Prevision"].DefaultView;
             conect.disconnect();
         }
@@ -66,8 +66,7 @@ namespace IAERP
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //MainWindow window = new MainWindow();
-            //window.Show();
+            MainWindow.mainWindow.Focus();
             this.Close();
         }
 

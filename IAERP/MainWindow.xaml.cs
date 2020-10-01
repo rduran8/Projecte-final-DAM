@@ -29,9 +29,11 @@ namespace IAERP
         private Boolean TemporalidadOK = false;
         private Boolean FechaOK = false;
         private DBManagement dbManager = null;
+        public static MainWindow mainWindow;
         public MainWindow()
         {
             InitializeComponent();
+            mainWindow = this;
             this.Title = "IAERP";
             dbManager = new DBManagement();
         }

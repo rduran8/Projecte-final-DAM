@@ -11,8 +11,9 @@ namespace IAERP
     class DBConnection
     {
         private SqlConnection cnn;
-        private string connetionString = "Data Source=DESKTOP-OJIIBU7;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False; Database=IAERP";
+        private string connetionString = "Data Source=V-IOSQL\\SQL2016;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False; Database=IAERP";
         //connetionString = "Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True;Persist Security Info=False";
+        //Data Source=V-IOSQL\SQL2016;Initial Catalog=IAERP;Integrated Security=True
         public SqlConnection connect()
         {
             cnn = new SqlConnection(connetionString);

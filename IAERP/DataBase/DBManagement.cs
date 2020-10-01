@@ -66,7 +66,7 @@ namespace IAERP
             SqlConnection cnn = conect.connect();
             using (var com = cnn.CreateCommand())
             {
-                string query1 = "insert into dbo.prevision (id_prevision, producto, fecha, prevision) OUTPUT INSERTED.ID values(@idprevision, @producto, @fecha, @prevision)";
+                string query1 = "insert into dbo.prevision (idprevision, producto, fecha, prevision) OUTPUT INSERTED.ID values(@idprevision, @producto, @fecha, @prevision)";
                 com.CommandText = query1;
                 com.Parameters.AddRange(parametersPrevision);
                 com.CommandType = CommandType.Text;
@@ -85,7 +85,7 @@ namespace IAERP
                 parSelect[0].Value = id;
                 parSelect[1].Value = ano;
                 parSelect[2].Value = mes;
-                string query1 = "select siguiente, id, ano, mes, unidades, anterior from dbo.sales where id = @id and ano = @ano and mes = @mes";
+                string query1 = "select siguiente, id, ano, mes, unidades, anterior from dbo.SaleData where id = @id and ano = @ano and mes = @mes";
                 com.CommandText = query1;
                 com.Parameters.AddRange(parSelect);
                 com.CommandType = CommandType.Text;
