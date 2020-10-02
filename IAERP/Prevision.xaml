@@ -43,6 +43,18 @@
                     <Image HorizontalAlignment="Left" Height="43" Margin="10,20,0,0" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Top" Width="255" Source="logoe.png"/>
                 </Grid>
             </DockPanel>
+            <DockPanel Height="60" LastChildFill="true" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" UseLayoutRounding="True" Name="BottomDock" >
+                <Grid x:Name ="BottomGrid" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Width="{Binding ElementName=BottomDock, Path=ActualWidth, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ElementName=BottomDock, Path=ActualHeight, UpdateSourceTrigger=PropertyChanged}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="211"/>
+                        <ColumnDefinition Width="211"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" Grid.Row="0" Margin="10,10,5,5" Content="VOLVER" Click="Button_Click" Background="#FFFFE0C1" BorderBrush="#FFD7D4D7"/>
+                    <Button Grid.Column="0" Grid.Row="0"  Margin="5,10,10,5" Content="CERRAR" Click="Button_Click_1" Background="#FFFFE0C1" BorderBrush="#FFD7D4D7"/>
+                    <Label Grid.Column="2" Grid.Row="0" Content="Versión:" Margin="0,0,10,5" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="210"/>
+                </Grid>
+            </DockPanel>
             <DockPanel LastChildFill="false" VerticalAlignment="Top" Margin="0" DockPanel.Dock="top">
                 <DockPanel DockPanel.Dock="Top" Margin="10" LastChildFill="True" UseLayoutRounding="True" Name="TableDock">
                     <DataGrid x:Name="DataGridPrevision" AutoGenerateColumns="false" UseLayoutRounding="True" DockPanel.Dock="Top" ColumnHeaderHeight="31" CanUserAddRows="false" AlternatingRowBackground="#FFFFE0C1" AreRowDetailsFrozen="True" IsReadOnly="True" Background="#FFFFE0C1" RowBackground="#FFFFBA75" HeadersVisibility="Column" HorizontalGridLinesBrush="#FFD7D4D7" VerticalGridLinesBrush="#FFD7D4D7" BorderBrush="#FFD7D4D7">
@@ -61,18 +73,6 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
-            </DockPanel>
-            <DockPanel Height="60" LastChildFill="true" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" UseLayoutRounding="True" Name="BottomDock" >
-                <Grid x:Name ="BottomGrid" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Width="{Binding ElementName=BottomDock, Path=ActualWidth, UpdateSourceTrigger=PropertyChanged}" Height="{Binding ElementName=BottomDock, Path=ActualHeight, UpdateSourceTrigger=PropertyChanged}">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="211"/>
-                        <ColumnDefinition Width="211"/>
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" Grid.Row="0" Margin="10,10,5,5" Content="VOLVER" Click="Button_Click" Background="#FFFFE0C1" BorderBrush="#FFD7D4D7"/>
-                    <Button Grid.Column="0" Grid.Row="0"  Margin="5,10,10,5" Content="CERRAR" Click="Button_Click_1" Background="#FFFFE0C1" BorderBrush="#FFD7D4D7"/>
-                    <Label Grid.Column="2" Grid.Row="0" Content="Versión:" Margin="0,0,10,5" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="210"/>
-                </Grid>
             </DockPanel>
         </DockPanel>
     </Grid>
